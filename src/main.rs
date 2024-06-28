@@ -1,8 +1,22 @@
 mod fizzbuzzs;
-use fizzbuzzs::fizzbuzz1;
+use fizzbuzzs::fizzbuzz_while;
+use fizzbuzzs::fizzbuzz_match;
+use std::io;
 
 fn main() {
-    fizzbuzz1::fizzbuzz1();
+    let mut w = String::new();
+    io::stdin().read_line(&mut w).expect("Failed to read line.");
+
+    print!("{}", w);
+    
+    if w.contains("while") {
+        println!("あなたしにたい？" );
+        fizzbuzz_while::fizzbuzz1();
+    } else if w.contains("match") {
+        fizzbuzz_match::fizzbuzz_match();
+    } else {
+            println!("ざんねん死んでください")
+    }
 }
 
 
