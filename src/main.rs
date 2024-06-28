@@ -1,23 +1,28 @@
 mod fizzbuzzs;
 use fizzbuzzs::fizzbuzz_while;
 use fizzbuzzs::fizzbuzz_match;
-use std::io;
+use proconio::input;
+use fizzbuzzs::fizzbuzz_closure;
 
 fn main() {
-    let mut w = String::new();
-    io::stdin().read_line(&mut w).expect("Failed to read line.");
+    input! {
+        x: String,
+    }
 
-    print!("{}", w);
-    
+    input(x);
+
+}
+
+fn input(w: String) {
     if w.contains("while") {
-        println!("あなたしにたい？" );
         fizzbuzz_while::fizzbuzz1();
     } else if w.contains("match") {
         fizzbuzz_match::fizzbuzz_match();
+    } else if w.contains("closure") {
+        fizzbuzz_closure::fizzbuzz_closure();
     } else {
-            println!("ざんねん死んでください")
+        println!("ざんねん死んでください")
     }
 }
-
 
 
